@@ -2,17 +2,17 @@
 
 return [
     // Labels
-    'outlet'     => 'Outlet',
-    'list'           => 'Outlet List',
-    'search'         => 'Search Outlet',
-    'search_text'    => 'Name ...',
-    'all'            => 'All Outlet',
-    'select'         => 'Select Outlet',
-    'detail'         => 'Outlet Detail',
-    'not_found'      => 'Outlet not found.',
-    'empty'          => 'Outlet is empty.',
-    'back_to_show'   => 'Back to Outlet Detail',
-    'back_to_index'  => 'Back to Outlet List',
+    'outlet'        => 'Outlet',
+    'list'          => 'Outlet List',
+    'search'        => 'Search Outlet',
+    'search_text'   => 'Name ...',
+    'all'           => 'All Outlet',
+    'select'        => 'Select Outlet',
+    'detail'        => 'Outlet Detail',
+    'not_found'     => 'Outlet not found.',
+    'empty'         => 'Outlet is empty.',
+    'back_to_show'  => 'Back to Outlet Detail',
+    'back_to_index' => 'Back to Outlet List',
 
     // Actions
     'create'         => 'Create new Outlet',
@@ -28,6 +28,8 @@ return [
     'undeleteable'   => 'Outlet data cannot be deleted.',
 
     // Attributes
-    'name'           => 'Outlet Name',
-    'description'    => 'Outlet Description',
+    'name'      => 'Outlet Name',
+    'address'   => 'Outlet Address',
+    'latitude'  => 'Latitude',
+    'longitude' => 'Longitude',
 ];
