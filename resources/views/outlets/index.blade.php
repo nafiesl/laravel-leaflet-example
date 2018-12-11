@@ -30,7 +30,9 @@
                     <tr>
                         <th class="text-center">{{ __('app.table_no') }}</th>
                         <th>{{ __('outlet.name') }}</th>
-                        <th>{{ __('outlet.description') }}</th>
+                        <th>{{ __('outlet.address') }}</th>
+                        <th>{{ __('outlet.latitude') }}</th>
+                        <th>{{ __('outlet.longitude') }}</th>
                         <th class="text-center">{{ __('app.action') }}</th>
                     </tr>
                 </thead>
@@ -39,7 +41,9 @@
                     <tr>
                         <td class="text-center">{{ $outlets->firstItem() + $key }}</td>
                         <td>{!! $outlet->name_link !!}</td>
-                        <td>{{ $outlet->description }}</td>
+                        <td>{{ $outlet->address }}</td>
+                        <td>{{ $outlet->latitude }}</td>
+                        <td>{{ $outlet->longitude }}</td>
                         <td class="text-center">
                             @can('view', $outlet)
                                 <a href="{{ route('outlets.show', $outlet) }}" id="show-outlet-{{ $outlet->id }}">{{ __('app.show') }}</a>
