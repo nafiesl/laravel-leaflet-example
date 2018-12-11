@@ -44,8 +44,10 @@ class OutletController extends Controller
         $this->authorize('create', new Outlet);
 
         $newOutlet = $request->validate([
-            'name'        => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'name'      => 'required|max:60',
+            'address'   => 'nullable|max:255',
+            'latitude'  => 'nullable|required_with:longitude|max:15',
+            'longitude' => 'nullable|required_with:latitude|max:15',
         ]);
         $newOutlet['creator_id'] = auth()->id();
 
@@ -90,8 +92,10 @@ class OutletController extends Controller
         $this->authorize('update', $outlet);
 
         $outletData = $request->validate([
-            'name'        => 'required|max:60',
-            'description' => 'nullable|max:255',
+            'name'      => 'required|max:60',
+            'address'   => 'nullable|max:255',
+            'latitude'  => 'nullable|required_with:longitude|max:15',
+            'longitude' => 'nullable|required_with:latitude|max:15',
         ]);
         $outlet->update($outletData);
 

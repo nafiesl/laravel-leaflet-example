@@ -23,8 +23,10 @@ class ManageOutletTest extends TestCase
     private function getCreateFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'Outlet 1 name',
-            'description' => 'Outlet 1 description',
+            'name'      => 'Outlet 1 name',
+            'address'   => 'Outlet 1 address',
+            'latitude'  => '-3.333333',
+            'longitude' => '114.583333',
         ], $overrides);
     }
 
@@ -67,22 +69,24 @@ class ManageOutletTest extends TestCase
     }
 
     /** @test */
-    public function validate_outlet_description_is_not_more_than_255_characters()
+    public function validate_outlet_address_is_not_more_than_255_characters()
     {
         $this->loginAsUser();
 
-        // description 256 characters
+        // address 256 characters
         $this->post(route('outlets.store'), $this->getCreateFields([
-            'description' => str_repeat('Long description', 16),
+            'address' => str_repeat('Long outlet address', 16),
         ]));
-        $this->assertSessionHasErrors('description');
+        $this->assertSessionHasErrors('address');
     }
 
     private function getEditFields(array $overrides = [])
     {
         return array_merge([
-            'name'        => 'Outlet 1 name',
-            'description' => 'Outlet 1 description',
+            'name'      => 'Outlet 1 name',
+            'address'   => 'Outlet 1 address',
+            'latitude'  => '-3.333333',
+            'longitude' => '114.583333',
         ], $overrides);
     }
 
@@ -130,16 +134,16 @@ class ManageOutletTest extends TestCase
     }
 
     /** @test */
-    public function validate_outlet_description_update_is_not_more_than_255_characters()
+    public function validate_outlet_address_update_is_not_more_than_255_characters()
     {
         $this->loginAsUser();
         $outlet = factory(Outlet::class)->create(['name' => 'Testing 123']);
 
-        // description 256 characters
+        // address 256 characters
         $this->patch(route('outlets.update', $outlet), $this->getEditFields([
-            'description' => str_repeat('Long description', 16),
+            'address' => str_repeat('Long outlet address', 16),
         ]));
-        $this->assertSessionHasErrors('description');
+        $this->assertSessionHasErrors('address');
     }
 
     /** @test */

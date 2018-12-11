@@ -12,8 +12,12 @@
                 <div class="card-body">
                     <label class="control-label text-primary">{{ __('outlet.name') }}</label>
                     <p>{{ $outlet->name }}</p>
-                    <label class="control-label text-primary">{{ __('outlet.description') }}</label>
-                    <p>{{ $outlet->description }}</p>
+                    <label class="control-label text-primary">{{ __('outlet.address') }}</label>
+                    <p>{{ $outlet->address }}</p>
+                    <label class="control-label text-primary">{{ __('outlet.latitude') }}</label>
+                    <p>{{ $outlet->latitude }}</p>
+                    <label class="control-label text-primary">{{ __('outlet.longitude') }}</label>
+                    <p>{{ $outlet->longitude }}</p>
                     {!! $errors->first('outlet_id', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                 </div>
                 <hr style="margin:0">
@@ -40,9 +44,19 @@
                         {!! $errors->first('name', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                     <div class="form-group">
-                        <label for="description" class="control-label">{{ __('outlet.description') }}</label>
-                        <textarea id="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" rows="4">{{ old('description', $outlet->description) }}</textarea>
-                        {!! $errors->first('description', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                        <label for="address" class="control-label">{{ __('outlet.address') }}</label>
+                        <textarea id="address" class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" rows="4">{{ old('address', $outlet->address) }}</textarea>
+                        {!! $errors->first('address', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    </div>
+                    <div class="form-group">
+                        <label for="latitude" class="control-label">{{ __('outlet.latitude') }}</label>
+                        <input id="latitude" type="text" class="form-control{{ $errors->has('latitude') ? ' is-invalid' : '' }}" name="latitude" value="{{ old('latitude', $outlet->latitude) }}" required>
+                        {!! $errors->first('latitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
+                    </div>
+                    <div class="form-group">
+                        <label for="longitude" class="control-label">{{ __('outlet.longitude') }}</label>
+                        <input id="longitude" type="text" class="form-control{{ $errors->has('longitude') ? ' is-invalid' : '' }}" name="longitude" value="{{ old('longitude', $outlet->longitude) }}" required>
+                        {!! $errors->first('longitude', '<span class="invalid-feedback" role="alert">:message</span>') !!}
                     </div>
                 </div>
                 <div class="card-footer">

@@ -16,7 +16,9 @@ class CreateOutletsTable extends Migration
         Schema::create('outlets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 60);
-            $table->string('description')->nullable();
+            $table->string('address')->nullable();
+            $table->string('latitude', 15)->nullable();
+            $table->string('longitude', 15)->nullable();
             $table->unsignedInteger('creator_id');
             $table->timestamps();
 

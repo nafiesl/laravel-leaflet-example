@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Outlet extends Model
 {
-    protected $fillable = ['name', 'description', 'creator_id'];
+    protected $fillable = [
+        'name', 'address', 'latitude', 'longitude', 'creator_id',
+    ];
 
     public function getNameLinkAttribute()
     {
