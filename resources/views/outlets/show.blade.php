@@ -25,5 +25,53 @@
             </div>
         </div>
     </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">{{ trans('outlet.location') }}</div>
+            @if ($outlet->coordinate)
+            <div class="card-body" id="mapid"></div>
+            @else
+            <div class="card-body">{{ __('outlet.no_coordinate') }}</div>
+            @endif
+        </div>
+    </div>
 </div>
 @endsection
+
+@section('styles')
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+
+<style>
+    #mapid { height: 400px; }
+    .popup-content-row { margin: 6px 0; }
+</style>
+@endsection
+@push('scripts')
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+    integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+    crossorigin=""></script>
+
+<script>
+    var map = L.map('mapid').setView([{{ $outlet->latitude }}, {{ $outlet->longitude }}], 16);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var myIcon = L.icon({
+        iconUrl: "{{ url('images/marker-icon-green.png') }}",
+        shadowUrl: "{{ url('images/marker-shadow.png') }}",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+        className: "marker-icon-green",
+    });
+
+    L.marker([{{ $outlet->latitude }}, {{ $outlet->longitude }}], { icon: myIcon }).addTo(map)
+        .bindPopup('{!! $outlet->map_popup_content !!}');
+</script>
+@endpush

@@ -28,8 +28,10 @@ return [
     'undeleteable'   => 'Outlet data cannot be deleted.',
 
     // Attributes
-    'name'      => 'Outlet Name',
-    'address'   => 'Outlet Address',
-    'latitude'  => 'Latitude',
-    'longitude' => 'Longitude',
+    'name'       => 'Outlet Name',
+    'address'    => 'Outlet Address',
+    'latitude'   => 'Latitude',
+    'longitude'  => 'Longitude',
+    'location'   => 'Location',
+    'coordinate' => 'Coordinate',
 ];
