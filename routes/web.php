@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+ * Outlets Routes
+ */
+Route::resource('outlets', 'OutletController');
