@@ -45,9 +45,7 @@
                         <td>{{ $outlet->latitude }}</td>
                         <td>{{ $outlet->longitude }}</td>
                         <td class="text-center">
-                            @can('view', $outlet)
-                                <a href="{{ route('outlets.show', $outlet) }}" id="show-outlet-{{ $outlet->id }}">{{ __('app.show') }}</a>
-                            @endcan
+                            <a href="{{ route('outlets.show', $outlet) }}" id="show-outlet-{{ $outlet->id }}">{{ __('app.show') }}</a>
                         </td>
                     </tr>
                     @endforeach

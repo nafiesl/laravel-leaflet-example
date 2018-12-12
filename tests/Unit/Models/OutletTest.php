@@ -4,15 +4,15 @@ namespace Tests\Unit\Models;
 
 use App\User;
 use App\Outlet;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\BrowserKitTest as TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class OutletTest extends TestCase
 {
     use DatabaseMigrations;
 
     /** @test */
-    public function a_outlet_has_name_link_attribute()
+    public function an_outlet_has_name_link_attribute()
     {
         $outlet = factory(Outlet::class)->create();
 
@@ -28,11 +28,36 @@ class OutletTest extends TestCase
     }
 
     /** @test */
-    public function a_outlet_has_belongs_to_creator_relation()
+    public function an_outlet_has_belongs_to_creator_relation()
     {
         $outlet = factory(Outlet::class)->make();
 
         $this->assertInstanceOf(User::class, $outlet->creator);
         $this->assertEquals($outlet->creator_id, $outlet->creator->id);
+    }
+
+    /** @test */
+    public function an_outlet_has_coordinate_attribute()
+    {
+        $outlet = factory(Outlet::class)->make(['latitude' => '-3.333333', 'longitude' => '114.583333']);
+        $this->assertEquals($outlet->latitude.', '.$outlet->longitude, $outlet->coordinate);
+
+        $outlet = factory(Outlet::class)->make(['latitude' => null, 'longitude' => null]);
+        $this->assertNull($outlet->coordinate);
+
+        $outlet = factory(Outlet::class)->make(['latitude' => null, 'longitude' => '114.583333']);
+        $this->assertNull($outlet->coordinate);
+    }
+
+    /** @test */
+    public function an_outlet_has_map_popup_content_attribute()
+    {
+        $outlet = factory(Outlet::class)->make(['lat' => '-3.333333', 'long' => '114.583333']);
+
+        $mapPopupContent = '';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.name').':</strong><br>'.$outlet->name.'</div>';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.coordinate').':</strong><br>'.$outlet->coordinate.'</div>';
+
+        $this->assertEquals($mapPopupContent, $outlet->map_popup_content);
     }
 }
