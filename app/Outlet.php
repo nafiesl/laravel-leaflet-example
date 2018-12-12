@@ -39,8 +39,8 @@ class Outlet extends Model
     public function getMapPopupContentAttribute()
     {
         $mapPopupContent = '';
-        $mapPopupContent .= '<div class="popup-content-row"><strong>'.__('outlet.name').':</strong><br>'.$this->name.'</div>';
-        $mapPopupContent .= '<div class="popup-content-row"><strong>'.__('outlet.coordinate').':</strong><br>'.$this->coordinate.'</div>';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.name').':</strong><br>'.$this->name.'</div>';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.coordinate').':</strong><br>'.$this->coordinate.'</div>';
 
         return $mapPopupContent;
     }
