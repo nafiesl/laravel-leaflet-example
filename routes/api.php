@@ -22,4 +22,5 @@ Route::group(['as' => 'api.', 'namespace' => 'Api'], function () {
      * Outlets Endpoints
      */
     Route::get('outlets', 'OutletController@index')->name('outlets.index');
+    Route::get('outlets-geojson', 'OutletController@geoJSON')->name('outlets.geojson');
 });
