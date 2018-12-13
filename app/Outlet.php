@@ -11,6 +11,10 @@ class Outlet extends Model
         'name', 'address', 'latitude', 'longitude', 'creator_id',
     ];
 
+    public $appends = [
+        'coordinate', 'map_popup_content',
+    ];
+
     public function getNameLinkAttribute()
     {
         $title = __('app.show_detail_title', [
