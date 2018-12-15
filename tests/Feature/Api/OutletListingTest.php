@@ -17,10 +17,25 @@ class OutletListingTest extends TestCase
 
         $this->getJson(route('api.outlets.index'));
 
-        $this->seeJson([
-            'name'       => $outlet->name,
-            'address'    => $outlet->address,
-            'coordinate' => $outlet->coordinate,
+        $this->seeJsonSubset([
+            'type'     => 'FeatureCollection',
+            'features' => [
+                [
+                    'type'       => 'Feature',
+                    'properties' => [
+                        'name'       => $outlet->name,
+                        'address'    => $outlet->address,
+                        'coordinate' => $outlet->coordinate,
+                    ],
+                    'geometry'   => [
+                        'type'        => 'Point',
+                        'coordinates' => [
+                            $outlet->longitude,
+                            $outlet->latitude,
+                        ],
+                    ],
+                ],
+            ],
         ]);
     }
 }

@@ -33,7 +33,7 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    axios.get('{{ route('api.outlets.geojson') }}')
+    axios.get('{{ route('api.outlets.index') }}')
     .then(function (response) {
         console.log(response.data);
         L.geoJSON(response.data, {
