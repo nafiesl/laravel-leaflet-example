@@ -26,7 +26,7 @@
     crossorigin=""></script>
 
 <script>
-    var map = L.map('mapid').setView(['-3.333333', '114.583333'], 12);
+    var map = L.map('mapid').setView(['-3.313695', '114.590148'], 13);
     var baseUrl = "{{ url('/') }}";
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
