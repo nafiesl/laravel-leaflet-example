@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="card">
-        <div class="card-header">{{ __('outlet.list') }}</div>
-
-        <div class="card-body" id="mapid"></div>
-    </div>
+<div class="card">
+    <div class="card-body" id="mapid"></div>
 </div>
 @endsection
 
