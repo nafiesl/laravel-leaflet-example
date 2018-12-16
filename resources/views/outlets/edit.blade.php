@@ -96,7 +96,7 @@
     crossorigin=""></script>
 <script>
     var mapCenter = [{{ $outlet->latitude }}, {{ $outlet->longitude }}];
-    var map = L.map('mapid').setView(mapCenter, 16);
+    var map = L.map('mapid').setView(mapCenter, {{ config('leaflet.detail_zoom_level') }});
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -45,7 +45,6 @@
 
 <style>
     #mapid { height: 400px; }
-    .popup-content-row { margin: 6px 0; }
 </style>
 @endsection
 @push('scripts')
@@ -55,7 +54,7 @@
     crossorigin=""></script>
 
 <script>
-    var map = L.map('mapid').setView([{{ $outlet->latitude }}, {{ $outlet->longitude }}], 16);
+    var map = L.map('mapid').setView([{{ $outlet->latitude }}, {{ $outlet->longitude }}], {{ config('leaflet.detail_zoom_level') }});
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
