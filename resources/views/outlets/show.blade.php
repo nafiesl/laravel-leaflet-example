@@ -61,17 +61,7 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    var myIcon = L.icon({
-        iconUrl: "{{ url('images/marker-icon-green.png') }}",
-        shadowUrl: "{{ url('images/marker-shadow.png') }}",
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41],
-        className: "marker-icon-green",
-    });
-
-    L.marker([{{ $outlet->latitude }}, {{ $outlet->longitude }}], { icon: myIcon }).addTo(map)
+    L.marker([{{ $outlet->latitude }}, {{ $outlet->longitude }}]).addTo(map)
         .bindPopup('{!! $outlet->map_popup_content !!}');
 </script>
 @endpush
