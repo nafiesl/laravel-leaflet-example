@@ -1,6 +1,6 @@
 # Laravel Leaflet JS - Example
 
-This is an example project for [Leaflet JS](https://leafletjs.com){:target="_blank"} and [OpenStreetMap](https://www.openstreetmap.org){:target="_blank"} built with Laravel 5.7.
+This is an example project for [Leaflet JS](https://leafletjs.com) and [OpenStreetMap](https://www.openstreetmap.org) built with Laravel 5.7.
 
 ![Laravel Leaflet JS Project Example](public/screenshots/leaflet-map-01.jpg)
 
