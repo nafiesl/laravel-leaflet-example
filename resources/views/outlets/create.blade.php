@@ -63,8 +63,8 @@
     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
     crossorigin=""></script>
 <script>
-    var mapCenter = ['-3.313695', '114.590148'];
-    var map = L.map('mapid').setView(mapCenter, 13);
+    var mapCenter = [{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}];
+    var map = L.map('mapid').setView(mapCenter, {{ config('leaflet.zoom_level') }});
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

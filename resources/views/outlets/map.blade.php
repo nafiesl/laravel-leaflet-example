@@ -22,7 +22,7 @@
     crossorigin=""></script>
 
 <script>
-    var map = L.map('mapid').setView(['-3.313695', '114.590148'], 13);
+    var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
     var baseUrl = "{{ url('/') }}";
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
