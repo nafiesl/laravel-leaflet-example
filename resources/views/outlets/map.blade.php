@@ -34,16 +34,7 @@
         console.log(response.data);
         L.geoJSON(response.data, {
             pointToLayer: function(geoJsonPoint, latlng) {
-                var myIcon = L.icon({
-                    iconUrl: baseUrl + '/images/marker-icon-green.png',
-                    shadowUrl: baseUrl + '/images/marker-shadow.png',
-                    iconSize: [25, 41],
-                    iconAnchor: [12, 41],
-                    popupAnchor: [1, -34],
-                    shadowSize: [41, 41],
-                    className: 'marker-icon-green',
-                });
-                return L.marker(latlng, { icon: myIcon });
+                return L.marker(latlng);
             }
         })
         .bindPopup(function (layer) {
