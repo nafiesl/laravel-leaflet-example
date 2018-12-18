@@ -9,6 +9,12 @@ use App\Http\Resources\Outlet as OutletResource;
 
 class OutletController extends Controller
 {
+    /**
+     * Get outlet listing on Leaflet JS geoJSON data structure.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Illuminate\Http\JsonResponse
+     */
     public function index(Request $request)
     {
         $outlets = Outlet::all();
