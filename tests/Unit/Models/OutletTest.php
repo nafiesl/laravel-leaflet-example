@@ -55,7 +55,7 @@ class OutletTest extends TestCase
         $outlet = factory(Outlet::class)->make(['lat' => '-3.333333', 'long' => '114.583333']);
 
         $mapPopupContent = '';
-        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.name').':</strong><br>'.$outlet->name.'</div>';
+        $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.name').':</strong><br>'.$outlet->name_link.'</div>';
         $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.coordinate').':</strong><br>'.$outlet->coordinate.'</div>';
 
         $this->assertEquals($mapPopupContent, $outlet->map_popup_content);
