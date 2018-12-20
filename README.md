@@ -38,7 +38,7 @@ $ php artisan tinker
 
 ### Leaflet config
 
-We have a `config/leaflet.php` file in this project. Set our zoom_level, and map center default coordinate here.
+We have a `config/leaflet.php` file in this project. Set default **zoom level** and **map center** coordinate here (or in `.env` file).
 
 ```php
 <?php
@@ -46,12 +46,12 @@ We have a `config/leaflet.php` file in this project. Set our zoom_level, and map
 return [
     'zoom_level'           => 13,
     'detail_zoom_level'    => 16,
-    'map_center_latitude'  => '-3.313695',
-    'map_center_longitude' => '114.590148',
+    'map_center_latitude'  => env('MAP_CENTER_LATITUDE', '-3.313695'),
+    'map_center_longitude' => env('MAP_CENTER_LONGITUDE', '114.590148'),
 ];
 ```
 
-> Please not that this is not an official or required config file from Leaflet JS, it is just a custom config for this project.
+> Please note that this is not an official or required config file from Leaflet JS, it is just a custom config for this project.
 
 ## Testing
 
