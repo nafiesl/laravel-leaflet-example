@@ -14,6 +14,8 @@ class OutletController extends Controller
      */
     public function index()
     {
+        $this->authorize('manage_outlet');
+
         $outletQuery = Outlet::query();
         $outletQuery->where('name', 'like', '%'.request('q').'%');
         $outlets = $outletQuery->paginate(25);

@@ -14,7 +14,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Outlet' => 'App\Policies\OutletPolicy',
-        'App\Model' => 'App\Policies\ModelPolicy',
+        'App\Model'  => 'App\Policies\ModelPolicy',
     ];
 
     /**
@@ -26,6 +26,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('manage_outlet', function () {
+            return auth()->check();
+        });
     }
 }
