@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item"><a href="https://github.com/nafiesl/laravel-leaflet-example" class="btn btn-outline-primary btn-sm" target="_blank">Source code</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -77,6 +77,7 @@
         <main class="py-4 container">
             @yield('content')
         </main>
+        @include('layouts.partials.footer')
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
