@@ -11,7 +11,7 @@ abstract class BrowserKitTest extends BaseTestCase
 
     protected $baseUrl = 'http://localhost';
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         \Hash::setRounds(5);
