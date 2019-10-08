@@ -21,7 +21,7 @@
                 @can('update', $outlet)
                     <a href="{{ route('outlets.edit', $outlet) }}" id="edit-outlet-{{ $outlet->id }}" class="btn btn-warning">{{ __('outlet.edit') }}</a>
                 @endcan
-                @if(\Illuminate\Support\Facades\Auth::check())
+                @if(auth()->check())
                     <a href="{{ route('outlets.index') }}" class="btn btn-link">{{ __('outlet.back_to_index') }}</a>
                 @else
                     <a href="{{ route('outlet_map.index') }}" class="btn btn-link">{{ __('outlet.back_to_index') }}</a>
