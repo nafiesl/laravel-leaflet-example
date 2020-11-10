@@ -2,14 +2,14 @@
 
 namespace Tests\Unit\Models;
 
-use App\User;
 use App\Outlet;
+use App\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\BrowserKitTest as TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 class OutletTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     /** @test */
     public function an_outlet_has_name_link_attribute()
@@ -52,7 +52,7 @@ class OutletTest extends TestCase
     /** @test */
     public function an_outlet_has_map_popup_content_attribute()
     {
-        $outlet = factory(Outlet::class)->make(['lat' => '-3.333333', 'long' => '114.583333']);
+        $outlet = factory(Outlet::class)->create(['latitude' => '-3.333333', 'longitude' => '114.583333']);
 
         $mapPopupContent = '';
         $mapPopupContent .= '<div class="my-2"><strong>'.__('outlet.name').':</strong><br>'.$outlet->name_link.'</div>';
