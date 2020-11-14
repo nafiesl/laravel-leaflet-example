@@ -3,8 +3,8 @@
 namespace Tests\Feature\Api;
 
 use App\Outlet;
-use Tests\BrowserKitTest as TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\BrowserKitTest as TestCase;
 
 class OutletListingTest extends TestCase
 {
@@ -17,21 +17,28 @@ class OutletListingTest extends TestCase
 
         $this->getJson(route('api.outlets.index'));
 
-        $this->seeJsonSubset([
+        $this->seeJsonContains([
             'type'     => 'FeatureCollection',
             'features' => [
                 [
                     'type'       => 'Feature',
                     'properties' => [
-                        'name'       => $outlet->name,
-                        'address'    => $outlet->address,
-                        'coordinate' => $outlet->coordinate,
+                        'name'              => $outlet->name,
+                        'address'           => $outlet->address,
+                        'coordinate'        => $outlet->coordinate,
+                        'latitude'          => (string) $outlet->latitude,
+                        'longitude'         => (string) $outlet->longitude,
+                        'map_popup_content' => $outlet->map_popup_content,
+                        'creator_id'        => (string) $outlet->creator_id,
+                        'id'                => $outlet->id,
+                        'created_at'        => $outlet->created_at,
+                        'updated_at'        => $outlet->updated_at,
                     ],
                     'geometry'   => [
                         'type'        => 'Point',
                         'coordinates' => [
-                            $outlet->longitude,
-                            $outlet->latitude,
+                            (string) $outlet->longitude,
+                            (string) $outlet->latitude,
                         ],
                     ],
                 ],
