@@ -26,7 +26,6 @@
 
 <script>
     var map = L.map('mapid').setView([{{ config('leaflet.map_center_latitude') }}, {{ config('leaflet.map_center_longitude') }}], {{ config('leaflet.zoom_level') }});
-    var baseUrl = "{{ url('/') }}";
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -35,7 +34,6 @@
 
     axios.get('{{ route('api.outlets.index') }}')
     .then(function (response) {
-        console.log(response.data);
         var marker = L.geoJSON(response.data, {
             pointToLayer: function(geoJsonPoint, latlng) {
                 return L.marker(latlng).bindPopup(function (layer) {
