@@ -38,19 +38,18 @@
         console.log(response.data);
         var marker = L.geoJSON(response.data, {
             pointToLayer: function(geoJsonPoint, latlng) {
-                return L.marker(latlng);
+                return L.marker(latlng).bindPopup(function (layer) {
+                    return layer.feature.properties.map_popup_content;
+                });
             }
-        })
-        .bindPopup(function (layer) {
-            return layer.feature.properties.map_popup_content;
         });
         markers.addLayer(marker);
     })
     .catch(function (error) {
         console.log(error);
     });
-
     map.addLayer(markers);
+
     @can('create', new App\Outlet)
     var theMarker;
 
